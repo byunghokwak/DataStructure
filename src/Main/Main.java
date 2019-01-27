@@ -1,26 +1,31 @@
 package Main;
 
-import LinkedList.MyLinkedList;
-import LinkedList.Node;
+import Heap.HData;
+import Heap.Heap;
 
 public class Main {
 
 	public static void main(String[] args) {
 		
-		MyLinkedList list = new MyLinkedList();
+		Heap heap = new Heap();
 		
-		list.add(new Node(5));
-		list.add(new Node(10));
-		list.add(new Node(15));
-		list.add(new Node(20));
-		list.printAll();
+		heap.add(new HData(1,1500));
+		heap.add(new HData(6,1500));
+		heap.add(new HData(3,1500));
+		heap.add(new HData(60,1500));
+		heap.add(new HData(60,150));
+		heap.add(new HData(3,750));
 		
-		System.out.println("--------------");
+		for(int i=1; i<=heap.size(); i++) {
+			System.out.println(heap.get(i).age+", "+heap.get(i).money);
+		}
 		
-		list.remove(1);
+		System.out.println("----------");
 		
-		list.printAll();
-		
+		while(!heap.isEmpty()) {
+			HData data = heap.remove();
+			System.out.println(data.age+", "+data.money);
+		}
 	}
 
 }
